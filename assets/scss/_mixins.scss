@@ -1,0 +1,14 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin button-styles($bg-color, $hover-bg-color, $border-color) {
+  background-color: $bg-color;
+  border-color: $border-color;
+  &:hover {
+    background-color: $hover-bg-color;
+    border-color: darken($border-color, 10%);
+  }
+}

@@ -1,0 +1,19 @@
+.card {
+  @include border-radius($card-border-radius);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: $card-shadow-hover;
+  }
+
+  .card-img-top {
+    object-fit: cover;
+    height: $card-img-height;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,17 @@
+body {
+  font-family: $base-font;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  color: $text-color;
+}
+
+.card-text {
+  color: darken($text-color, 20%);
+}

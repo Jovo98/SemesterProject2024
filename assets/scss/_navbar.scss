@@ -1,0 +1,30 @@
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+
+  .navbar-brand {
+    color: $primary-color;
+    font-weight: bold;
+  }
+
+  .navbar-nav {
+    margin-left: auto;
+  }
+
+  .nav-item {
+    margin-left: 15px;
+  }
+
+  .btn {
+    @include button-styles($primary-color, darken($primary-color, 10%), $primary-color);
+
+  }
+
+  .btn-danger {
+    @include button-styles($danger-color, darken($danger-color, 10%), $danger-color);
+  }
+
+  .btn-secondary {
+    @include button-styles($secondary-color, darken($secondary-color, 10%), $secondary-color);
+  }
+}

@@ -1,0 +1,113 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  color: #333;
+}
+
+.card-text {
+  color: black;
+}
+
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+.navbar .navbar-brand {
+  color: #007bff;
+  font-weight: bold;
+}
+.navbar .navbar-nav {
+  margin-left: auto;
+}
+.navbar .nav-item {
+  margin-left: 15px;
+}
+.navbar .btn {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.navbar .btn:hover {
+  background-color: rgb(0, 98.4, 204);
+  border-color: rgb(0, 98.4, 204);
+}
+.navbar .btn-danger {
+  background-color: #ff4d4d;
+  border-color: #ff4d4d;
+}
+.navbar .btn-danger:hover {
+  background-color: #ff1a1a;
+  border-color: #ff1a1a;
+}
+.navbar .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+.navbar .btn-secondary:hover {
+  background-color: rgb(84.3605150215, 91.3905579399, 97.6394849785);
+  border-color: rgb(84.3605150215, 91.3905579399, 97.6394849785);
+}
+
+.card {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.card .card-img-top {
+  object-fit: cover;
+  height: 200px;
+}
+.card .card-body {
+  padding: 20px;
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 8px;
+}
+.btn-primary:hover {
+  background-color: rgb(0, 98.4, 204);
+  border-color: rgb(0, 98.4, 204);
+}
+
+.btn-danger {
+  background-color: #ff4d4d;
+  border-color: #ff4d4d;
+  border-radius: 8px;
+}
+.btn-danger:hover {
+  background-color: #ff1a1a;
+  border-color: #ff1a1a;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  border-radius: 8px;
+}
+.btn-secondary:hover {
+  background-color: rgb(84.3605150215, 91.3905579399, 97.6394849785);
+  border-color: rgb(84.3605150215, 91.3905579399, 97.6394849785);
+}
+
+/*# sourceMappingURL=styles.css.map */
