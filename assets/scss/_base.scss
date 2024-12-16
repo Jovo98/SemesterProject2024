@@ -1,6 +1,7 @@
+@import 'variables';
 body {
   font-family: $base-font;
-  background-color: $background-color;
+  background-color: $background-color !important;
   color: $text-color;
 }
 
@@ -13,5 +14,13 @@ body {
 }
 
 .card-text {
-  color: darken($text-color, 20%);
+  color: #565555;
+}
+
+h1 {
+  color: $text-color !important;
+}
+
+.text-center {
+  color: white;
 }

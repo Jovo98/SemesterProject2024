@@ -1,18 +1,35 @@
+@import 'variables';
+@import 'mixins';
 .navbar {
-  background-color: white;
-  border-bottom: 1px solid #ddd;
+  background-color: #191919;
+  border-bottom: 1px solid #3b3b3b;
 
   .navbar-brand {
-    color: $primary-color;
+    color: $text-color !important;
     font-weight: bold;
   }
 
   .navbar-nav {
     margin-left: auto;
+    color: $text-color !important;
   }
 
   .nav-item {
     margin-left: 15px;
+    margin-right: 15px;
+
+  }
+  #loginBtn {
+    color: white !important;
+  }
+  #registerBtn{
+    color: white !important;
+  }
+  #profileBtn{
+    color: white !important;
+  }
+  #logoutBtn{
+    color: white !important;
   }
 
   .btn {

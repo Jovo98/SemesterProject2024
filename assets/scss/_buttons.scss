@@ -1,3 +1,5 @@
+@import 'variables';
+@import 'mixins';
 .btn {
   font-size: 1rem;
   padding: 10px 20px;
@@ -6,15 +8,9 @@
 
 .btn-primary {
   @include button-styles($primary-color, darken($primary-color, 10%), $primary-color);
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
-.btn-danger {
-  @include button-styles($danger-color, darken($danger-color, 10%), $danger-color);
-  border-radius: 8px;
-}
-
-.btn-secondary {
-  @include button-styles($secondary-color, darken($secondary-color, 10%), $secondary-color);
-  border-radius: 8px;
+.bid-button {
+  margin-bottom: 10px;
 }

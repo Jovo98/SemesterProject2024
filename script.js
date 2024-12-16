@@ -7,6 +7,7 @@ const registerBtn = document.getElementById("registerBtn");
 const loginBtn = document.getElementById("loginBtn");
 const profileBtn = document.getElementById("profileBtn");
 const logoutBtn = document.getElementById("logoutBtn");
+const API_KEY = "afad05b1-e389-4ab8-a92d-d77313b4da24";
 async function fetchListings() {
     try {
         const response = await fetch(apiUrl);
@@ -15,7 +16,7 @@ async function fetchListings() {
         listingsContainer.innerHTML = "";
 
         data.forEach(item => {
-            const { title, description, media, endsAt, _count } = item;
+            const { title, description, media, endsAt, _count, id } = item;
 
             const mediaUrl = media.length > 0 ? media[0].url : "https://via.placeholder.com/150";
             const mediaAlt = media.length > 0 ? media[0].alt : "Placeholder Image";
@@ -23,7 +24,7 @@ async function fetchListings() {
             const bids = _count.bids;
 
             let listingCard = `
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6" data-id="${id}">
                     <div class="card shadow-sm">
                         <img src="${mediaUrl}" class="card-img-top" alt="${mediaAlt}">
                         <div class="card-body">
@@ -31,7 +32,9 @@ async function fetchListings() {
                             <p class="card-text">${description || "No description available."}</p>`;
 
             if (accessToken) {
-                listingCard += `<p class="card-bid"><strong>Bids:</strong> ${bids}</p>`;
+                listingCard += `
+                    <p class="card-bid"><strong>Bids:</strong> ${bids}</p>
+                    <button class="btn btn-primary bid-button" data-id="${id}">Place Bid</button>`;
             }
 
             listingCard += `
@@ -43,15 +46,65 @@ async function fetchListings() {
 
             listingsContainer.insertAdjacentHTML("beforeend", listingCard);
         });
+
+        addBidListeners();
     } catch (error) {
         console.error("Error fetching listings:", error);
-        document.getElementById("listings").innerHTML = `
+        listingsContainer.innerHTML = `
             <div class="alert alert-danger" role="alert">
                 Failed to load listings. Please try again later.
             </div>
         `;
     }
 }
+
+async function addBidListeners() {
+    const bidButtons = document.querySelectorAll('.bid-button');
+
+    bidButtons.forEach(button => {
+        button.addEventListener('click', async function() {
+            const listingId = this.getAttribute('data-id');
+
+            const bidAmount = prompt("Enter your bid amount:");
+
+            if (bidAmount && !isNaN(bidAmount) && Number(bidAmount) > 0) {
+                try {
+                    const token = localStorage.getItem("accessToken");
+
+                    if (!token) {
+                        alert("You must be logged in to place a bid.");
+                        return;
+                    }
+
+                    const response = await fetch(`https://v2.api.noroff.dev/auction/listings/${listingId}/bids`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${accessToken}`,
+                            "X-Noroff-API-Key": API_KEY,
+                        },
+                        body: JSON.stringify({ amount: Number(bidAmount) })
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        alert(`Bid placed successfully! Amount: ${bidAmount}`);
+                    } else {
+                        alert(`Failed to place bid: Higher bid active`);
+                    }
+                } catch (error) {
+                    alert("An error occurred while placing your bid.");
+                }
+            } else {
+                alert("Please enter a valid bid amount.");
+            }
+        });
+    });
+}
+
+
+
 
 fetchListings();
 
