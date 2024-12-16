@@ -1,0 +1,47 @@
+@import 'variables';
+@import 'mixins';
+.navbar {
+  background-color: #191919;
+  border-bottom: 1px solid #3b3b3b;
+
+  .navbar-brand {
+    color: $text-color !important;
+    font-weight: bold;
+  }
+
+  .navbar-nav {
+    margin-left: auto;
+    color: $text-color !important;
+  }
+
+  .nav-item {
+    margin-left: 15px;
+    margin-right: 15px;
+
+  }
+  #loginBtn {
+    color: white !important;
+  }
+  #registerBtn{
+    color: white !important;
+  }
+  #profileBtn{
+    color: white !important;
+  }
+  #logoutBtn{
+    color: white !important;
+  }
+
+  .btn {
+    @include button-styles($primary-color, darken($primary-color, 10%), $primary-color);
+
+  }
+
+  .btn-danger {
+    @include button-styles($danger-color, darken($danger-color, 10%), $danger-color);
+  }
+
+  .btn-secondary {
+    @include button-styles($secondary-color, darken($secondary-color, 10%), $secondary-color);
+  }
+}
